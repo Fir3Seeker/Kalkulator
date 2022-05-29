@@ -1,0 +1,72 @@
+import java.util.Scanner;
+
+public class Kalkulator {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+        while (true) {
+
+            System.out.println("Wybierz spośród: 1:Pierwiastek kwadratowy  2:pierwiastek równiania liniowego  3:funkcja kwadratowa  4:trójkąt równoboczny wpisany w okrąg  5:zakończenie programu");
+            int change = scan.nextInt();
+            if(change == 5){
+                System.out.println("koniec");
+                break;
+                }
+            switch (change) {
+                case 1:
+                    System.out.println("Podaj liczbe do pierwiastkowania " );
+                    int numer = scan.nextInt();
+                    System.out.println("Pierwiastek z " + numer + " równa się " + Math.sqrt(numer));
+                case 2:
+                    float a, b;
+                    System.out.print("Podaj a= ");
+                    a = scan.nextFloat();
+                    System.out.print("Podaj b= ");
+                    b = scan.nextFloat();
+                    if(a==0)
+                        if (b == 0)
+                            System.out.println("równianie  tożsamościowe");
+                        else
+                            System.out.println("równianie sprzeczne");
+                    else{
+                        float x;
+                        x=-b/a;
+                        System.out.println("x =" +" " +x);
+                        }
+                case 3:
+                    int a1,b2,c3;
+                    System.out.println("Podaj a: " );
+                    a1 = scan.nextInt();
+                    System.out.println("Podaj b: " );
+                    b2 = scan.nextInt();
+                    System.out.println("Podaj c: " );
+                    c3 = scan.nextInt();
+                    int delta=b2*b2-4*a1*c3;
+                    System.out.println("Delta:"+delta);
+                        if  (delta>0){
+                            System.out.println("Delta jest dodatnia");
+                            double x1=(-b2-Math.sqrt(delta))/2*a1;
+                            System.out.println("x1= "+x1);
+                            double x2=(-b2+Math.sqrt(delta))/2*a1;
+                            System.out.println("x2= "+x2);
+                        }
+                        else if (delta==0){
+                            int xx=-b2/2*a1;
+                            System.out.println("x= "+xx);
+                        }
+                case 4: 
+                    int atrojkata,r,obw,htrojkata,h;
+                    System.out.println("Podaj r okręgu: " );
+                    r = scan.nextInt();
+                    h = r*3;
+                    System.out.println("h= "+h );
+                    double atroj = 2*h/Math.sqrt(3);
+                    System.out.println("a= "+atroj);
+                    double ptroj = (atroj*atroj*Math.sqrt(3))/4;
+                    System.out.println("Pole trójkąta= "+ptroj);
+                }
+
+            }
+        }
+    }
